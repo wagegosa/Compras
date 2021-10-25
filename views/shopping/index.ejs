@@ -1,0 +1,49 @@
+<% include ../layouts/cabecera.ejs %>
+</head>
+<body>
+    <div class="container">
+        <% include ../layouts/menu.ejs %>
+        <div class="card">
+            <!-- <div class="card-header">
+                <h2>Listado de <%= title %></h2>
+                <div class="float-right">
+                    <a href="./shopping/create" type="button" class="btn btn-primary btn-sm" onclick="window.location=''">Nuevo</a>
+                </div>
+            </div> -->
+            <div class="card-body">
+                <form method="post" action="/shopping/comprar" autocomplete="on">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad Dispinible</th>
+                                <th>Agregar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for( let i = 0; i < productos.length; i++ ) { %>
+                                <tr>
+                                    <td> <%=productos[i].name%> </td>
+                                    <td class="align-middle">$<%= productos[i].Price %></td>
+                                    <td class="align-middle"> <%=productos[i].quantity_available%> </td>
+                                    <td> 
+                                        <input type="number" name="carry_quantity<%= productos[i].id %>" id="carry_quantity<%= productos[i].id %>" min="0" value="0">
+                                        <input type="hidden" name="id<%= productos[i].id %>" id="id<%= productos[i].id %>" value="<%= productos[i].id %>">
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <div class="form-group row">
+                        <div class="offset-4 col-8">
+                            <br><br>
+                            <button name="Guardar" type="submit" class="btn btn-primary">Comprar</button>
+                            <a href="../products" type="button" class="btn btn-warning">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<% include ../layouts/pie %>

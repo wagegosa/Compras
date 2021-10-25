@@ -1,0 +1,53 @@
+<% include ../layouts/cabecera.ejs %>
+</head>
+<body>
+    <div class="container">
+        <% include ../layouts/menu.ejs %>
+        <div class="card">
+            <div class="card-header">
+                <h2>Listado de <%= title %></h2>
+                <div class="float-right">
+                    <a href="./products/create" type="button" class="btn btn-primary btn-sm" onclick="window.location=''">Nuevo</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>N. lote</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad Dispinible</th>
+                            <th>Fec. ingreso</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for( let i = 0; i < productos.length; i++ ) { %>
+                            <tr>
+                                <td> <%=productos[i].lot_number%> </td>
+                                <td> <%=productos[i].name%> </td>
+                                <td class="align-middle"><%= productos[i].Price %></td>
+                                <td class="align-middle"> <%=productos[i].quantity_available%> </td>
+                                <td> <%= productos[i].date_admission %></td>
+                                <td>
+                                    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                        <form action="/products/editar/<%=productos[i].id%>" method="get">
+                                            <button type="submit"class="btn btn-xs btn-success">Editar</button>
+                                        </form>
+                                        <!-- <a href="/products/edit/<%=productos[i].id%>" class="btn btn-xs btn-success">Editar</a> -->
+                                    </div>
+                                    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                        <form action="/products/eliminar/<%=productos[i].id%>" method="post">
+                                            <button type="submit"class="btn btn-xs btn-danger">Borrar</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<% include ../layouts/pie %>

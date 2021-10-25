@@ -1,0 +1,73 @@
+<% include ../layouts/cabecera.ejs %>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <% include ../layouts/menu.ejs %>
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Formulario de registro</h1>
+
+                        <div class="card">
+                            <div class="card-header">
+                                Registro de productos
+                                <div class="float-right">
+                                    <a href="../users" type="button" class="btn btn-warning btn-sm">Cancelar</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" action="/users/guardar" autocomplete="on">
+                                    <div class="form-group row">
+                                        <label for="text" class="col-4 col-form-label">Nombre</label>
+                                        <div class="col-8">
+                                            <input id="name" name="name" placeholder="Nombre" type="text"
+                                                class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="" class="col-4 col-form-label">Email</label>
+                                        <div class="col-8">
+                                            <input id="email" name="email" placeholder="Email" type="email"
+                                                class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="number" class="col-4 col-form-label">Contraseña</label>
+                                        <div class="col-8">
+                                            <input id="password" name="password" placeholder="Contraseña"
+                                                type="password" class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="select" class="col-4 col-form-label">Rol</label>
+                                        <div class="col-8">
+                                            <select id="role" name="role" class="custom-select" required="required">
+                                                <option value="">-- Seleccione.. --</option>
+                                                <option value="1">Administrador</option>
+                                                <option value="2">Cliente</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="date" class="col-4 col-form-label">Fecha de ingreso</label>
+                                        <div class="col-8">
+                                            <input id="created_at" name="created_at"
+                                                placeholder="Fecha de ingreso" type="date" class="form-control"
+                                                required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="offset-4 col-8">
+                                            <button name="Guardar" type="submit"
+                                                class="btn btn-primary">Guardar</button>
+                                            <a href="../users" type="button" class="btn btn-warning">Cancelar</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <% include ../layouts/pie %>

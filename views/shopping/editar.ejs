@@ -1,0 +1,69 @@
+<% include ../layouts/cabecera.ejs %>
+    </head>
+
+    <body>
+        
+        <div class="container">
+            <% include ../layouts/menu.ejs %>
+            <div class="card">
+                <div class="card-body">
+                    <h1>Formulario de <%= title %></h1>
+
+                    <div class="card">
+                        <div class="card-header">
+                            Registro de productos
+                            <div class="float-right">
+                                <a href="/products" type="button" class="btn btn-warning btn-sm">Cancelar</a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="../actualizar" autocomplete="on">
+                                <div class="form-group row">
+                                    <label for="" class="col-4 col-form-label">Numero producto</label>
+                                    <div class="col-8">
+                                        <input id="lot_number" name="lot_number" placeholder="Numero del producto" type="text"
+                                            class="form-control" value="<%= product.lot_number %>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="text" class="col-4 col-form-label">Nombre</label>
+                                    <div class="col-8">
+                                        <input id="name" name="name" placeholder="Nombre" type="text"
+                                            class="form-control" required="required" value="<%= product.name %>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="number" class="col-4 col-form-label">Precio</label>
+                                    <div class="col-8">
+                                        <input id="Price" name="Price" placeholder="Precio" type="number"
+                                            class="form-control" required="required" value="<%= product.Price %>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="number" class="col-4 col-form-label">Cantidad disponible</label>
+                                    <div class="col-8">
+                                        <input id="quantity_available" name="quantity_available" placeholder="Cantidad disponible" type="number"
+                                            class="form-control" required="required" value="<%= product.quantity_available %>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="date" class="col-4 col-form-label">fecha de admisión</label>
+                                    <div class="col-8">
+                                        <input id="date_admission" name="date_admission" placeholder="fecha de admisión" type="date"
+                                            class="form-control" required="required" value="<%= product.date_admission %>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="offset-4 col-8">
+                                        <input type="hidden" name="id" id="id" value="<%= product.id %>">
+                                        <button name="Guardar" type="submit" class="btn btn-primary">Actualizar</button>
+                                        <a href="/products" type="button" class="btn btn-warning">Cancelar</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% include ../layouts/pie %>
